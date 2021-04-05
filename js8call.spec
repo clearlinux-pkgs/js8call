@@ -4,7 +4,7 @@
 #
 Name     : js8call
 Version  : 2.2.0
-Release  : 1
+Release  : 2
 URL      : http://files.js8call.com/2.2.0/js8call-2.2.0.tgz
 Source0  : http://files.js8call.com/2.2.0/js8call-2.2.0.tgz
 Summary  : No detailed summary available
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1617648358
+export SOURCE_DATE_EPOCH=1617649430
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -84,7 +84,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1617648358
+export SOURCE_DATE_EPOCH=1617649430
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/js8call
 cp %{_builddir}/js8call/COPYING %{buildroot}/usr/share/package-licenses/js8call/a060d2e79e2c8351d94bb5154772293b5a739edf
@@ -93,6 +93,9 @@ cp %{_builddir}/js8call/qcustomplot-source/GPL.txt %{buildroot}/usr/share/packag
 pushd clr-build
 %make_install
 popd
+## Remove excluded files
+rm -f %{buildroot}/usr/bin/rigctl-local
+rm -f %{buildroot}/usr/bin/rigctld-local
 
 %files
 %defattr(-,root,root,-)
@@ -101,8 +104,6 @@ popd
 %defattr(-,root,root,-)
 /usr/bin/js8
 /usr/bin/js8call
-/usr/bin/rigctl-local
-/usr/bin/rigctld-local
 
 %files data
 %defattr(-,root,root,-)

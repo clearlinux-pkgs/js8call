@@ -15,5 +15,4 @@ libhamlib.so.4
 libm.so.6
 libmvec.so.1
 libpthread.so.0
-libreadline.so.8
 libstdc++.so.6
