@@ -14,5 +14,4 @@ libgomp.so.1
 libhamlib.so.4
 libm.so.6
 libmvec.so.1
-libpthread.so.0
 libstdc++.so.6
